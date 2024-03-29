@@ -1,13 +1,290 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap'); */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+::selection{
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-neutral-100);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin-block: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: Bellefair,system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--clr-neutral-100);
+    color: white;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --clr-primary-700: hsl(35, 77%, 62%);
+        --clr-primary-400: hsl(5, 85%, 63%);
+
+        --clr-neutral-100: hsl(36, 100%, 99%);
+        --clr-neutral-200: hsl(233, 8%, 79%);
+        --clr-neutral-400: hsl(236, 13%, 42%);
+        --clr-neutral-900: hsl(240, 100%, 5%);
+
+        --font-size: 1rem;
+
+        --max-width: 1440px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clr-primary-700: hsl(35, 77%, 42%);
+        --clr-primary-400: hsl(5, 85%, 43%);
+
+        --clr-neutral-100: hsl(240, 100%, 5%);
+        --clr-neutral-200: hsl(233, 8%, 29%);
+        --clr-neutral-400: hsl(236, 13%, 58%);
+        --clr-neutral-900: hsl(240, 100%, 99%);
+
+        --font-size: 1rem;
+
+        --max-width: 1440px;
+
+    }
+}
+
+main {
+  max-width: var(--max-width);
+  width: 100%;
+  min-height: 100vh;
+  margin-inline: auto;
+  background-color: var(--clr-neutral-100);
+  padding-inline: 3rem;
+  color: white;
+  background-image: url();
+
+}
+
+nav {
+  width: 100%;
+  height: 10vh;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0%;
+
+
+  padding-block: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav>.nleft>img{
+  color: white;
+}
+
+
+
+ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+ul>il>a {
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--clr-neutral-400);
+  transition: all ease-in-out 0.2s;
+}
+
+ul>il>a:hover {
+  color: var(--clr-primary-700);
+
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 2rem 0;
+  gap: 2rem;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+
+
+/*Styling Hamburger Icon*/
+.hamburger div {
+  width: 40px;
+  height: 3px;
+  background: var(--clr-neutral-900);
+  border-radius: 100vw;
+  margin: 6px;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  display: none;
+}
+
+/*Stying for small screens*/
+@media screen and (max-width: 1024px) {
+
+  .hamburger {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.7s ease;
+  }
+
+  .nav-links {
+      position: fixed;
+      top: -5%;
+      right: 0;
+      z-index: 99;
+
+
+      height: 110vh;
+      width: 70%;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-block: 15vh;
+
+
+      transform: translateX(100%);
+      transition: all 1s ease-out;
+      pointer-events: none;
+  }
+
+  
+      
+}
+.open {
+  background-color: var(--clr-neutral-100);
+  
+  
+  transform: translateX(0%);
+  pointer-events: all;
+}
+
+@media screen and (max-width: 300px){
+ .nav-links{
+  width: 100%;
+ }
+}
+
+/*Animating Hamburger Icon on Click*/
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.toggle .line2 {
+  transition: all 0.7s ease;
+  width: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+
+.active{
+  border-bottom: 2px solid white;
+}
+
+/* home */
+
+/* destination */
+
+
+
+/* crew */
+
+/* technology */
+
+.active-technology{
+  width: 4rem;
+  aspect-ratio: 1;
+  font-size: 1.2rem;
+  border: 2px solid white;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
 }
