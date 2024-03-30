@@ -1,69 +1,45 @@
 import React, { useState, useEffect } from "react";
-import jsonData from "../data.json";
 import Navbar from "../components/Navbar";
+import data from '../data.json';
 
 function Crew() {
   const [crews, setCrews] = useState([]);
-  const [activeLink, setActiveLink] = useState("Douglas Hurley");
-  const [activeID, setActiveID] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
-    setCrews(jsonData.crew);
+    setCrews(data.crew);
   }, []);
 
-  const handleLinkClick = (link, id) => {
-    setActiveLink(link);
-    setActiveID(id);
+  const changeTab = (index) => {
+    setActiveTab(index);
   };
 
+  const crew = crews[activeTab] || {};
+
   return (
-    <main className="technology">
-      <Navbar />
-
-      <h2>02 pick your crew</h2>
-
-      <div className="container">
-        {crews.map((crew) => {
-          if (crew.id === activeLink) {
-            return (
-              <div
-                className="left w-[100%] flex items-center justify-center"
-                key={crew.id}
-              >
-                <img src={crew.images.png} alt={`${crew.name} images`} />
-              </div>
-            );
-          }
-        })}
-        <div className="right">
-          <div className="link flex gap-6">
-            {crews.map((crew) => {
-              return (
-                <p
-                  className={activeLink === "${crew.name}" ? "active" : ""}
-                  onClick={() => handleLinkClick("crew.name", crew.id)}
-                >
-                  {crew.id}
-                </p>
-              );
-            })}
-          </div>
-          {crews.map((crew) => {
-            if (crew.id === activeID) {
-              return (
-                <div className="info" key={crew.id}>
-                  <h1>{crew.name}</h1>
-                  <h4>{crew.role}</h4>
-                  <p>{crew.bio}</p>
-                </div>
-              );
-            } else {
-              return null;
-            }
-          })}
+    <div className="crew full-width min-h-screen">
+      <Navbar/>
+      <div >
+        <div className="tab-buttons">
+          {crews.map((crewMember, index) => (
+            <button
+              key={index}
+              className={index === activeTab ? 'active' : ''}
+              onClick={() => changeTab(index)}
+            >
+              {crewMember.name}
+            </button>
+          ))}
+        </div>
+        <div className="crew-content">
+          <img src={crew.images?.webp} alt={`${crew.name} image`} />
+          {/* Render content of active tab */}
+          <h2>{crew.name}</h2>
+          <p>{crew.role}</p>
+          {/* You can add more content fields here */}
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 

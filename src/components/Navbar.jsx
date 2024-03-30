@@ -1,5 +1,5 @@
 import React,{ useLayoutEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
 
@@ -30,32 +30,32 @@ function Navbar() {
   },[]);
 
   return (
-    <nav>
-      <div className="nleft">
-        <img src='/assets/shared/logo.svg' alt="space-tourism" />
-      </div>
-      <div className="nright">
-        <div className="hamburger">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
+      <nav className=''>
+        <div className="nleft">
+          <img src='/assets/shared/logo.svg' alt="space-tourism" />
         </div>
-        <ul className="nav-links">
-          <il>
-            <Link to="/">home</Link>
-          </il>
-          <il>
-            <Link to="/destination">destination</Link>
-          </il>
-          <il>
-            <Link to="/crew">crew</Link>
-          </il>
-          <il>
-            <Link to="/technology">technology</Link>
-          </il>
-        </ul>
-      </div>
-    </nav>
+        <div className="nright">
+          <div className="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <ul className="nav-links backdrop-blur-xl">
+            <il>
+              <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}>home</NavLink>
+            </il>
+            <il>
+              <NavLink to="/destination" className={({ isActive }) => (isActive ? "link-active" : "link")}>destination</NavLink>
+            </il>
+            <il>
+              <NavLink to="/crew" className={({ isActive }) => (isActive ? "link-active" : "link")}>crew</NavLink>
+            </il>
+            <il>
+              <NavLink to="/technology" className={({ isActive }) => (isActive ? "link-active" : "link")}>technology</NavLink>
+            </il>
+          </ul>
+        </div>
+      </nav>
   )
 }
 

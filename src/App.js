@@ -7,7 +7,7 @@ import Technology from './pages/Technology'
 
 function App() {
   return (
-    <div>
+    <div className='content-grid'>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/destination' element={<Destination/> } />
