@@ -30,7 +30,7 @@ function Navbar() {
   },[]);
 
   return (
-      <nav className=''>
+      <nav className='pl-6 md:pl-16 lg:pl-20'>
         <div className="nleft">
           <img src='/assets/shared/logo.svg' alt="space-tourism" />
         </div>
@@ -42,16 +42,16 @@ function Navbar() {
           </div>
           <ul className="nav-links backdrop-blur-xl">
             <il>
-              <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}>home</NavLink>
+              <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='font-bold '>00</span> &nbsp; home</NavLink>
             </il>
             <il>
-              <NavLink to="/destination" className={({ isActive }) => (isActive ? "link-active" : "link")}>destination</NavLink>
+              <NavLink to="/destination" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='font-bold'>01</span > &nbsp; destination</NavLink>
             </il>
             <il>
-              <NavLink to="/crew" className={({ isActive }) => (isActive ? "link-active" : "link")}>crew</NavLink>
+              <NavLink to="/crew" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='font-bold'>02</span> &nbsp; crew</NavLink>
             </il>
             <il>
-              <NavLink to="/technology" className={({ isActive }) => (isActive ? "link-active" : "link")}>technology</NavLink>
+              <NavLink to="/technology" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='font-bold'>03</span> &nbsp; technology</NavLink>
             </il>
           </ul>
         </div>
