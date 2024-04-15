@@ -21,7 +21,7 @@ const Destination = () => {
       <Navbar />
       <h2 className="pt-32 pb-8 uppercase text-[16px] sm:text-[20px] md:text-[28px] text-center md:text-start"><span className="text-white/25 font-bold tracking-[4.8px]">01</span>&nbsp; pick your destination</h2>
 
-      <div className="container w-full gap-6 md:gap-8 grid grid-cols-1 md:grid-cols-2  place-self-center">
+      <div className="container w-full gap-6 md:gap-8 grid grid-cols-1 md:grid-cols-2  place-self-center pb-6">
               <div
                 className="left flex items-center justify-center"
               >
