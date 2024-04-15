@@ -20,7 +20,7 @@ function Technology() {
     <div className="technology full-width min-h-screen">
       <Navbar />
       <h2 className="pt-32 pb-8 uppercase text-[16px] sm:text-[20px] md:text-[28px] h-fit"><span className="text-white/25 font-bold tracking-[4.8px]">03</span>&nbsp; SPACE LAUNCH 101</h2>
-      <div className="grid md:grid-cols-[1.2fr_minmax(350px,_0.8fr)] min-h-[70vh] gap-8 dm:gap-12">
+      <div className="grid md:grid-cols-[1.2fr_minmax(350px,_0.8fr)] min-h-[70vh] gap-8 md:gap-12 pb-6">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-20 items-center">
           <div className="tab-buttons flex md:flex-col items-center md:items-start gap-4">
             {technologys.map((technologyTab, index) => (
