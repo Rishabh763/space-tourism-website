@@ -24,7 +24,7 @@ function Crew() {
         &nbsp; Meet your crew
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pb-6">
-        <div className="crew-content flex flex-col gap-6 md:gap-28 items-center md:items-start justify-between md:justify-self-start self-center">
+        <div className="crew-content flex md:flex-col flex-col-reverse gap-6 md:gap-28 items-center md:items-start justify-between md:justify-self-start self-center">
           <div className="text max-w-[70ch] flex flex-col gap-4 items-center md:items-start">
             <p className="text-white/60 text-2xl sm:text-3xl">{crew.role}</p>
             <p className="text-4xl sm:text-6xl tracking-tight">{crew.name}</p>
